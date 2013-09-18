@@ -13,6 +13,7 @@ class MainAdmin(admin.ModelAdmin):
         'verify',
         #'code',
         #'server',
+        'arrived',
     )
     order_by = (
         'family',
