@@ -25,13 +25,13 @@ class MainAdmin(admin.ModelAdmin):
         'email',
     )
     actions = (
-        'person_arriaved',
+        'person_arrived',
     )
     
-    def person_arriaved(self, request, queryset):
+    def person_arrived(self, request, queryset):
         for item in queryset:
             item.mark_arrived()
-    person_arriaved.short_description = 'arrived'
+    person_arrived.short_description = 'arrived'
 
 admin.site.disable_action('delete_selected')   
 admin.site.register(models.Main, MainAdmin)
