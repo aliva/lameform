@@ -1,5 +1,9 @@
-from django.contrib import admin
+from functools import partial
+
 from lameform import models
+
+from django.contrib import admin
+from django.contrib.admin.helpers import ActionForm
 
 class MainAdmin(admin.ModelAdmin):
     list_display = (
@@ -7,7 +11,7 @@ class MainAdmin(admin.ModelAdmin):
         'name',
         'arrived',
         'email',
-        'phone',
+        #'phone',
         'edu',
         'work',
         #'date',
@@ -23,10 +27,13 @@ class MainAdmin(admin.ModelAdmin):
         'name',
         'family',
         'email',
+        'phone',
     )
     actions = (
         'person_arrived',
     )
+    
+    action_form = partial(ActionForm, initial={'action': 'person_arrived'})
     
     def person_arrived(self, request, queryset):
         for item in queryset:
