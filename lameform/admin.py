@@ -19,6 +19,11 @@ class MainAdmin(admin.ModelAdmin):
         'family',
         'name',
     )
+    search_fields = (
+        'name',
+        'family',
+        'email',
+    )
     actions = (
         'person_arriaved',
     )
