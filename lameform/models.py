@@ -11,3 +11,9 @@ class Main(models.Model):
     verify = models.SmallIntegerField()
     code = models.TextField()
     server = models.TextField()
+    
+    class Meta:
+        ordering = (
+            'family',
+            'name',
+        )
