@@ -5,6 +5,7 @@ class MainAdmin(admin.ModelAdmin):
     list_display = (
         'family',
         'name',
+        'arrived',
         'email',
         'phone',
         'edu',
@@ -13,11 +14,19 @@ class MainAdmin(admin.ModelAdmin):
         'verify',
         #'code',
         #'server',
-        'arrived',
     )
     order_by = (
         'family',
         'name',
     )
+    actions = (
+        'person_arriaved',
+    )
+    
+    def person_arriaved(self, request, queryset):
+        for item in queryset:
+            item.mark_arrived()
+    person_arriaved.short_description = 'arrived'
 
+admin.site.disable_action('delete_selected')   
 admin.site.register(models.Main, MainAdmin)

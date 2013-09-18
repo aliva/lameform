@@ -1,4 +1,7 @@
+import datetime
+
 from django.db import models
+from django.utils.timezone import utc
 
 class Main(models.Model):
     name = models.TextField()
@@ -18,3 +21,9 @@ class Main(models.Model):
             'family',
             'name',
         )
+
+    def mark_arrived(self):
+        if self.arrived != None:
+            return
+        self.arrived = datetime.datetime.utcnow().replace(tzinfo=utc)
+        self.save()
