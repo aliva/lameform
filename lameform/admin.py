@@ -32,13 +32,13 @@ class MainAdmin(admin.ModelAdmin):
     actions = (
         'person_arrived',
     )
-    
+
     action_form = partial(ActionForm, initial={'action': 'person_arrived'})
-    
+
     def person_arrived(self, request, queryset):
         for item in queryset:
             item.mark_arrived()
     person_arrived.short_description = 'arrived'
 
-admin.site.disable_action('delete_selected')   
+admin.site.disable_action('delete_selected')
 admin.site.register(models.Main, MainAdmin)

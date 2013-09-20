@@ -15,7 +15,7 @@ class Main(models.Model):
     code = models.TextField()
     server = models.TextField()
     arrived = models.DateTimeField(blank=True, null=True, default=None)
-    
+
     class Meta:
         ordering = (
             'family',
