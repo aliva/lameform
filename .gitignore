@@ -2,3 +2,6 @@
 *.json
 *.sql
 *.sqlite3
+*.csv
+*.pdf
+*.xlsx
