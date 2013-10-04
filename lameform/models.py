@@ -7,7 +7,7 @@ class Main(models.Model):
     name = models.TextField()
     family = models.TextField()
     email = models.EmailField()
-    phone = models.TextField()
+    phone = models.TextField(blank=True, null=True, default='')
     edu = models.TextField()
     work = models.TextField()
     date = models.DateTimeField()
