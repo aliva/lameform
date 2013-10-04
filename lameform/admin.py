@@ -9,7 +9,7 @@ class MainAdmin(admin.ModelAdmin):
     list_display = (
         'family',
         'name',
-        'arrived',
+        'has_arrived',
         'email',
         #'phone',
         'edu',
@@ -39,6 +39,15 @@ class MainAdmin(admin.ModelAdmin):
         for item in queryset:
             item.mark_arrived()
     person_arrived.short_description = 'arrived'
+
+    def has_arrived(self, obj):
+        if obj.arrived == None:
+            return False
+        else:
+            return True
+    has_arrived.short_description = 'arrived'
+    has_arrived.allow_tags = True
+    has_arrived.boolean = True
 
 admin.site.disable_action('delete_selected')
 admin.site.register(models.Main, MainAdmin)
