@@ -5,6 +5,22 @@ from lameform import models
 from django.contrib import admin
 from django.contrib.admin.helpers import ActionForm
 
+class HasArrivedListFilter(admin.SimpleListFilter):
+    title = 'arrived'
+    parameter_name = 'hasarrived_param'
+
+    def lookups(self, request, model_admin):
+        return (
+            ('1', 'arrived'),
+            ('0', 'not arrived')
+        )
+
+    def queryset(self, request, queryset):
+        if self.value() == '0':
+            return queryset.filter(arrived=None)
+        elif self.value() == '1':
+            return queryset.all().exclude(arrived=None)
+
 class MainAdmin(admin.ModelAdmin):
     list_display = (
         'family',
@@ -18,6 +34,9 @@ class MainAdmin(admin.ModelAdmin):
         'verify',
         #'code',
         #'server',
+    )
+    list_filter = (
+        HasArrivedListFilter,
     )
     order_by = (
         'family',
