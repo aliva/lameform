@@ -25,6 +25,7 @@ class MainAdmin(admin.ModelAdmin):
     list_display = (
         'family',
         'name',
+        #'arrived',
         'has_arrived',
         'email',
         #'phone',
