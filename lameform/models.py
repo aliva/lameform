@@ -12,8 +12,8 @@ class Main(models.Model):
     work = models.TextField(blank=True, null=True, default='')
     date = models.DateTimeField()
     verify = models.SmallIntegerField()
-    code = models.TextField()
-    server = models.TextField()
+    code = models.TextField(blank=True, null=True, default='')
+    server = models.TextField(blank=True, null=True, default='')
     arrived = models.DateTimeField(blank=True, null=True, default=None)
     registered_on_site = models.BooleanField()
 
