@@ -6,7 +6,7 @@ from django.utils.timezone import utc
 class Main(models.Model):
     name = models.TextField()
     family = models.TextField()
-    email = models.EmailField()
+    email = models.EmailField(blank=True, null=True, default='')
     phone = models.TextField(blank=True, null=True, default='')
     edu = models.TextField(blank=True, null=True, default='')
     work = models.TextField(blank=True, null=True, default='')
