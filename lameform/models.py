@@ -8,7 +8,7 @@ class Main(models.Model):
     family = models.TextField()
     email = models.EmailField()
     phone = models.TextField(blank=True, null=True, default='')
-    edu = models.TextField()
+    edu = models.TextField(blank=True, null=True, default='')
     work = models.TextField(blank=True, null=True, default='')
     date = models.DateTimeField()
     verify = models.SmallIntegerField()
