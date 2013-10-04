@@ -31,4 +31,5 @@ class Command(BaseCommand):
                 verify=info['verify'],
                 code=info['code'],
                 server=info['server'],
+                registered_on_site=True,
             )

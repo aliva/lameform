@@ -15,6 +15,9 @@ class Main(models.Model):
     code = models.TextField()
     server = models.TextField()
     arrived = models.DateTimeField(blank=True, null=True, default=None)
+    registered_on_site = models.BooleanField()
+
+    registered_on_site.verbose_name = 'net reg'
 
     class Meta:
         ordering = (
