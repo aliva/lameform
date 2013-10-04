@@ -31,8 +31,8 @@ class MainAdmin(admin.ModelAdmin):
         #'phone',
         'edu',
         'work',
-        #'date',
-        'verify',
+        'date',
+        'has_verified',
         #'code',
         #'server',
     )
@@ -67,6 +67,11 @@ class MainAdmin(admin.ModelAdmin):
             return True
     has_arrived.short_description = 'arrived'
     has_arrived.boolean = True
+
+    def has_verified(self, obj):
+        return obj.verify
+    has_verified.short_description = 'verified'
+    has_verified.boolean = True
 
 admin.site.disable_action('delete_selected')
 admin.site.register(models.Main, MainAdmin)
