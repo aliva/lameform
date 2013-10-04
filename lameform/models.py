@@ -9,7 +9,7 @@ class Main(models.Model):
     email = models.EmailField()
     phone = models.TextField(blank=True, null=True, default='')
     edu = models.TextField()
-    work = models.TextField()
+    work = models.TextField(blank=True, null=True, default='')
     date = models.DateTimeField()
     verify = models.SmallIntegerField()
     code = models.TextField()
