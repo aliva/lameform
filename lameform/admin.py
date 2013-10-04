@@ -46,7 +46,6 @@ class MainAdmin(admin.ModelAdmin):
         else:
             return True
     has_arrived.short_description = 'arrived'
-    has_arrived.allow_tags = True
     has_arrived.boolean = True
 
 admin.site.disable_action('delete_selected')
