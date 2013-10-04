@@ -22,6 +22,9 @@ class Main(models.Model):
             'name',
         )
 
+    def __str__(self):
+        return self.email
+
     def mark_arrived(self):
         if self.arrived != None:
             return
