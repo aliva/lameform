@@ -25,16 +25,17 @@ class MainAdmin(admin.ModelAdmin):
     list_display = (
         'family',
         'name',
-        #'arrived',
-        'has_arrived',
+        'arrived',
+        #'arrive_time',
         'email',
         #'phone',
         'edu',
         'work',
-        'date',
+        #'date',
         'has_verified',
         #'code',
         #'server',
+        'registered_on_site',
     )
     list_filter = (
         HasArrivedListFilter,
@@ -59,14 +60,6 @@ class MainAdmin(admin.ModelAdmin):
         for item in queryset:
             item.mark_arrived()
     person_arrived.short_description = 'arrived'
-
-    def has_arrived(self, obj):
-        if obj.arrived == None:
-            return False
-        else:
-            return True
-    has_arrived.short_description = 'arrived'
-    has_arrived.boolean = True
 
     def has_verified(self, obj):
         return obj.verify
