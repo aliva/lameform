@@ -14,7 +14,8 @@ class Main(models.Model):
     verify = models.SmallIntegerField()
     code = models.TextField(blank=True, null=True, default='')
     server = models.TextField(blank=True, null=True, default='')
-    arrived = models.DateTimeField(blank=True, null=True, default=None)
+    arrived = models.BooleanField()
+    arrive_time = models.DateTimeField(blank=True, null=True, default=None)
     registered_on_site = models.BooleanField()
 
     registered_on_site.verbose_name = 'net reg'
